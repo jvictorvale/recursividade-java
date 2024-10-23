@@ -1,9 +1,10 @@
 public class main {
     public static void main(String[] args) {
 //        contadorDe1AteNumero(1,4);
+//        int numeroFatorado = fatorial(5);
+//        System.out.println(numeroFatorado);
 
-        int numeroFatorado = fatorial(5);
-        System.out.println(numeroFatorado);
+        System.out.println(ehPalindromo("radaR"));
     }
 
     static void contadorDescResurivo(int numero) {
@@ -37,5 +38,14 @@ public class main {
             return 1;
         }
         return numero * fatorial(numero - 1 );
+    }
+
+    static boolean ehPalindromo(String palavra) {
+        if(palavra.length() <= 1)
+            return true;
+        if(palavra.toLowerCase().charAt(0) == palavra.toLowerCase().charAt(palavra.length() - 1)) {
+            return ehPalindromo(palavra.substring(1, palavra.length() - 1));
+        }
+        return false;
     }
 }
