@@ -4,7 +4,8 @@ public class main {
 //        int numeroFatorado = fatorial(5);
 //        System.out.println(numeroFatorado);
 
-        System.out.println(ehPalindromo("radaR"));
+        System.out.println(ehPalindromo("roma é amor"));
+        System.out.println(ehPalindromoSimplificado("roma é amor"));
     }
 
     static void contadorDescResurivo(int numero) {
@@ -43,9 +44,13 @@ public class main {
     static boolean ehPalindromo(String palavra) {
         if(palavra.length() <= 1)
             return true;
-        if(palavra.toLowerCase().charAt(0) == palavra.toLowerCase().charAt(palavra.length() - 1)) {
+        if(palavra.toLowerCase().charAt(0) == palavra.toLowerCase().charAt(palavra.length() - 1))
             return ehPalindromo(palavra.substring(1, palavra.length() - 1));
-        }
         return false;
+    }
+
+    static boolean ehPalindromoSimplificado(String palavra){
+        return palavra.length() <= 1 ||
+                (palavra.toLowerCase().charAt(0) == palavra.toLowerCase().charAt(palavra.length() - 1) && ehPalindromo(palavra.substring(1, palavra.length() - 1)));
     }
 }
